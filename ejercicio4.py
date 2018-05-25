@@ -7,6 +7,9 @@
 # la transformada inversa para graficar la nueva senal (figura 'filtro.png')
 
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 
 n = 512 # number of point in the whole interval
@@ -16,3 +19,9 @@ t = np.linspace( 0, (n-1)*dt, n)
 y = np.sin(2 * np.pi * f * t) + np.cos(2 * np.pi * f * t * t)
 noise = 1.4*(np.random.rand(n)+0.7)
 y  =  y + noise
+
+plt.plot(t,y)
+plt.xlabel('t')
+plt.ylabel('y')
+plt.title('y vs t')
+plt.savefig('senal.png')
